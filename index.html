@@ -33,7 +33,11 @@
     }
     fetch('list').then(function(response){
       response.text().then(function(text){
-        
+        //<li>
+          const list = text.split(',');
+          for(let i in list){
+            document.querySelector('#nav').innerHTML = `<li><a href="#!${i}" onclick="fetchPage('${i}')>${i}</a></li>`;
+          }
       })
     })
   </script>
